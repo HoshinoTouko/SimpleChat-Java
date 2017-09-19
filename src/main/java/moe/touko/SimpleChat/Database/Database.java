@@ -11,6 +11,32 @@ public class Database extends sqlite {
         super(DBPath);
     }
 
+    public static Database getNewDatabase(){
+        return new Database(
+                "C:\\Projects\\LearnJava\\SimpleChatService\\data\\database.db"
+        );
+    }
+
+    // Find max function
+    @Override
+    public final int findMax(String table, String column){
+        // Get result
+        List result = this.select(table);
+        // Iterate result list
+        int max = 0;
+        Iterator<HashMap<String, Object>> iter = result.iterator();
+        try {
+            while(iter.hasNext()){
+                int temp = (int) iter.next().get(column);
+                max = temp > max ? temp : max;
+            }
+        }
+        catch (Exception e){
+            System.out.println(String.format("Error! INFO: %s", e.getMessage()));
+        }
+        return max;
+    }
+
     // Update function
     @Override
     public final void update(String table, Map<String, Object> data, Map<String, Object> where){
@@ -30,7 +56,6 @@ public class Database extends sqlite {
             }
         }
     }
-
 
     // Delete function
     @Override

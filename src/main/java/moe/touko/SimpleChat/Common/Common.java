@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class Common {
+
     public static String BeautifyDictionary(Map<String, Object> data){
         ArrayList<String> resultList = new ArrayList<>();
         String resultString;
@@ -17,6 +18,7 @@ public class Common {
         resultString = String.join(", ", resultList);
         return resultString;
     }
+
     public static String BeautifyDictionary(Map<String, Object> data, ArrayList<String> keys){
         ArrayList<String> resultList = new ArrayList<>();
         String resultString;
@@ -39,18 +41,14 @@ public class Common {
         resultString = String.join(", ", resultList);
         return resultString;
     }
+
     public static Boolean isNumber(Object object){
-        if (
+        return (
                 object instanceof Short ||
                         object instanceof Integer ||
                         object instanceof Long ||
                         object instanceof Float ||
                         object instanceof Double
-                ){
-            return true;
-        }
-        else {
-            return false;
-        }
+                );
     }
 }

@@ -24,6 +24,7 @@ public abstract class sqlite {
     public abstract void delete(String table, Map<String, Object> where);
     public abstract void delete(String table, Map<String, Object> where, Boolean isCommit);
 
+    public abstract int findMax(String table, String column);
 
     ArrayList runSQLWithReturnData(String sql) throws SQLException {
         // Init vars.
@@ -77,4 +78,5 @@ public abstract class sqlite {
         connection.close();
         return resultList;
     }
+
 }
