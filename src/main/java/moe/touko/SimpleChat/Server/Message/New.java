@@ -1,10 +1,10 @@
 package moe.touko.SimpleChat.Server.Message;
 
 import moe.touko.SimpleChat.Model.Message;
-import moe.touko.SimpleChat.Server.Responser.MessageResponder;
+import moe.touko.SimpleChat.Server.Responser.ResponderMessage;
 import moe.touko.SimpleChat.Server.User.Token.Check;
 
-public class New extends MessageResponder {
+public class New extends ResponderMessage {
     private String ip;
 
     New(
