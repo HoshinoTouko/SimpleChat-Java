@@ -18,7 +18,10 @@ public class Check extends Responser {
         }
     }
 
-    private static boolean CheckToken (String username, String token){
+    public static boolean CheckToken (String username, String token){
+        // Clear outdated token
+        new Clear();
+        // Init database instance
         Database db = Database.getNewDatabase();
         ArrayList tokens = db.select("Token");
         for (Object tokenobj: tokens

@@ -14,7 +14,7 @@ import java.util.Date;
 public class MessageController {
 
     @RequestMapping(value = "new", method = RequestMethod.GET)
-    public Receive receive(
+    public New receive(
             HttpServletRequest request,
             @RequestParam(value = "room", defaultValue = "10000") String room,
             @RequestParam(value = "text", defaultValue = "NoContent") String text,
@@ -30,6 +30,6 @@ public class MessageController {
         // Get room number
         long roomNumber = Long.parseLong(room);
         // Push to receive entity
-        return new Receive(roomNumber, text, username, ip, time);
+        return new New(roomNumber, text, username, ip, time, token);
     }
 }

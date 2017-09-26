@@ -54,4 +54,8 @@ public class Token extends Responser {
     public String getToken() {
         return token;
     }
+
+    public String getIp() {
+        return ip;
+    }
 }
