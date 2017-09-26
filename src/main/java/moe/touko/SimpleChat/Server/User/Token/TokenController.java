@@ -22,7 +22,7 @@ public class TokenController {
             @RequestParam(value = "username", defaultValue = "Anonymous") String username,
             @RequestParam(value = "password", defaultValue = "NoPassword") String password
     ){
-        // Get ip address
+        // GetMessage ip address
         String ip = request.getRemoteAddr();
         // Push to receive entity
         return new Token(username, password, ip);

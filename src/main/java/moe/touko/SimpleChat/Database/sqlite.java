@@ -32,7 +32,7 @@ public abstract class sqlite {
         // Connect to db.
         Connection connection = DriverManager.getConnection(this.DBPath);
         Statement statement = connection.createStatement();
-        // Get MetaData
+        // GetMessage MetaData
         ResultSet rs = statement.executeQuery(sql);
         ResultSetMetaData metaData = rs.getMetaData();
         // Analysis MetaData.
@@ -64,13 +64,13 @@ public abstract class sqlite {
         // Start connection.
         Connection connection = DriverManager.getConnection(this.DBPath);
         Statement statement = connection.createStatement();
-        // Get data.
+        // GetMessage data.
         ResultSet rs = statement.executeQuery(sql);
         // Analysis column names.
         ResultSetMetaData metaData = rs.getMetaData();
         int columnNumber = metaData.getColumnCount();
         ArrayList<String> resultList = new ArrayList<>();
-        // Get column names.
+        // GetMessage column names.
         for(int i = 1; i <= columnNumber; i++){
             resultList.add(metaData.getColumnName(i));
         }

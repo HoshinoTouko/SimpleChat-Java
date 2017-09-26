@@ -20,7 +20,7 @@ public class Database extends sqlite {
     // Find max function
     @Override
     public final int findMax(String table, String column){
-        // Get result
+        // GetMessage result
         List result = this.select(table);
         // Iterate result list
         int max = 0;
@@ -99,7 +99,7 @@ public class Database extends sqlite {
     }
     @Override
     public final void insert(String table, Map<String, Object> data, Boolean isCommit) {
-        // Get all column names.
+        // GetMessage all column names.
         ArrayList<String> columns;
         try{
             columns = this.getAllColumn(table);

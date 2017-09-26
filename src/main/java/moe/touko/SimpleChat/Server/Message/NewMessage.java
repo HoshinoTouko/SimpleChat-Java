@@ -4,10 +4,10 @@ import moe.touko.SimpleChat.Model.Message;
 import moe.touko.SimpleChat.Server.Responser.ResponderMessage;
 import moe.touko.SimpleChat.Server.User.Token.Check;
 
-public class New extends ResponderMessage {
+public class NewMessage extends ResponderMessage {
     private String ip;
 
-    New(
+    NewMessage(
             long room,
             String text,
             String username,
