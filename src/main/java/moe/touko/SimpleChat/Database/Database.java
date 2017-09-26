@@ -67,7 +67,7 @@ public class Database extends sqlite {
         // BeautifyDictionary
         String whereText = Common.BeautifyDictionary(where);
         // Gen SQL
-        String sql = String.format("DELETE FROM %s WHERE %s", table, whereText);
+        String sql = String.format("DELETE FROM %s WHERE (%s)", table, whereText);
         System.out.println(String.format("SQL: %s", sql));
         if (isCommit){
             try{
@@ -80,8 +80,8 @@ public class Database extends sqlite {
 
     // Select function block
     @Override
-    public final List select(String table){
-        List result = new ArrayList<>();
+    public final ArrayList select(String table){
+        ArrayList result = new ArrayList<>();
         String sql = String.format("SELECT * FROM %s", table);
         try{
             result = this.runSQLWithReturnData(sql);
