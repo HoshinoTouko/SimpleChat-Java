@@ -91,6 +91,20 @@ public class Database extends sqlite {
         }
         return result;
     }
+    // Select include where func
+    @Override
+    public final ArrayList select(String table, Map<String, Object> where) {
+        ArrayList result = new ArrayList<>();
+        String whereText = Common.BeautifyDictionary(where);
+        String sql = String.format("SELECT * FROM %s WHERE (%s)", table, whereText);
+        try{
+            result = this.runSQLWithReturnData(sql);
+        }
+        catch (SQLException e){
+            System.out.println(String.format("SELECT func Error: %s", e.getMessage()));
+        }
+        return result;
+    }
 
     // Insert function block.
     @Override

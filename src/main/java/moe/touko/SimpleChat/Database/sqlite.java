@@ -17,6 +17,7 @@ public abstract class sqlite {
     public abstract void insert (String table, Map<String, Object> data, Boolean isCommit);
 
     public abstract List select (String table);
+    public abstract List select (String table, Map<String, Object> where);
 
     public abstract void update(String table, Map<String, Object> data, Map<String, Object> where);
     public abstract void update(String table, Map<String, Object> data, Map<String, Object> where, Boolean isCommit);
