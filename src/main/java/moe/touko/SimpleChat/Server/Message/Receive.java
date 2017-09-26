@@ -1,14 +1,17 @@
 package moe.touko.SimpleChat.Server.Message;
 
 import moe.touko.SimpleChat.Database.Database;
-import moe.touko.SimpleChat.Model.Conversation.ConversationEntity;
+import moe.touko.SimpleChat.Server.Responser.Responser;
 
 import java.util.HashMap;
 
-public class Receive extends ConversationEntity {
-
-    private int status;
-    private String msg;
+public class Receive extends Responser {
+    private long id;
+    private long room = 10000;
+    private String text;
+    private String username;
+    private String time;
+    private String ip;
 
     Receive (long room, String text, String username, String ip, String time){
         this.room = room;
@@ -38,10 +41,7 @@ public class Receive extends ConversationEntity {
 
     }
 
-    public int getStatus() {
-        return status;
-    }
-    public String getMsg() {
-        return msg;
+    public String getIp() {
+        return ip;
     }
 }
