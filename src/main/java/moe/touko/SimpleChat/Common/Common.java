@@ -6,6 +6,19 @@ import java.util.Map;
 
 public class Common {
 
+    public static String byte2Hex(byte[] bytes){
+        StringBuilder stringBuilder = new StringBuilder();
+        String temp = null;
+        for (byte byt: bytes){
+            temp = Integer.toHexString(byt & 0xFF);
+            if (temp.length()==1){
+                stringBuilder.append("0");
+            }
+            stringBuilder.append(temp);
+        }
+        return stringBuilder.toString();
+    }
+
     public static String BeautifyDictionary(Map<String, Object> data){
         ArrayList<String> resultList = new ArrayList<>();
         String resultString;
