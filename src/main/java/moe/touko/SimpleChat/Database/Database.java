@@ -84,6 +84,7 @@ public class Database extends sqlite {
         ArrayList result = new ArrayList<>();
         String sql = String.format("SELECT * FROM %s", table);
         try{
+            System.out.println(String.format("SQL: %s", sql));;
             result = this.runSQLWithReturnData(sql);
         }
         catch (SQLException e){
@@ -98,6 +99,7 @@ public class Database extends sqlite {
         String whereText = Common.BeautifyDictionary(where);
         String sql = String.format("SELECT * FROM %s WHERE (%s)", table, whereText);
         try{
+            System.out.println(String.format("SQL: %s", sql));
             result = this.runSQLWithReturnData(sql);
         }
         catch (SQLException e){

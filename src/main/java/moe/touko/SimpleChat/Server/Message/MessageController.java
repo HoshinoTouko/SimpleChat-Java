@@ -16,10 +16,11 @@ public class MessageController {
     @RequestMapping(value = "get", method = RequestMethod.GET)
     public GetMessage getMessage(
             HttpServletRequest request,
+            @RequestParam(value = "room", defaultValue = "10000") long room,
             @RequestParam(value = "number", defaultValue = "10") long number,
             @RequestParam(value = "page", defaultValue = "1") long page
     ){
-        return new GetMessage(number, page);
+        return new GetMessage(room, number, page);
     }
 
     @RequestMapping(value = "new", method = RequestMethod.GET)

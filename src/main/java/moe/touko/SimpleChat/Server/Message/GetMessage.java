@@ -9,15 +9,22 @@ import java.util.*;
 public class GetMessage extends ResponderMessage {
 
     public GetMessage(){
-        this(10, 1);
+        this(10000, 10, 1);
     }
-    public GetMessage(long number){
-        this(number, 1);
+    public GetMessage(long room){
+        this(room, 10, 1);
     }
-    public GetMessage(long number, long page){
+    public GetMessage(long room, long number){
+        this(room, number, 1);
+    }
+    public GetMessage(long room, long number, long page){
         // GetMessage message array and reverse it.
         Database database = Database.getNewDatabase();
-        List msgArrs = database.select("Conversation");
+        // Init where string
+        Map<String, Object> whereList = new HashMap<>();
+        whereList.put("room", room);
+        // Fetch data from database
+        List msgArrs = database.select("Conversation", whereList);
         for (Object msgArrObj: msgArrs
              ) {
             Map msgArr = (HashMap)msgArrObj;
